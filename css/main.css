@@ -13,6 +13,8 @@
 }
 .banner .page-header {
   color: #fff;
+  position: relative;
+  bottom: 13.5rem;
 }
 #board {
   position: relative;

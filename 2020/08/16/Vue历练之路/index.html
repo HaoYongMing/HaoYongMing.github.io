@@ -17,7 +17,7 @@
   <meta name="description" content="只一自反,天下没有不可了之事.">
   <meta name="author" content="半生浮沉">
   <meta name="keywords" content="">
-  <title>Vue历练之路一---Vue介绍 - 庸人の随笔</title>
+  <title>Vue历练之路一---Vue介绍、安装及项目初始化 - 庸人の随笔</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      649 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -223,10 +223,54 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Vue历练之路一---Vue介绍</h1>
+            <h1 style="display: none">Vue历练之路一---Vue介绍、安装及项目初始化</h1>
             
             <div class="markdown-body" id="post-body">
-              
+              <h2 id="认识Vue"><a href="#认识Vue" class="headerlink" title="认识Vue"></a>认识Vue</h2><p>​    <code>Vue</code>(读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，<code>Vue</code> 被设计为可以自底向上逐层应用。<code>Vue</code> 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，<code>Vue</code> 也完全能够为复杂的单页应用提供驱动。</p>
+<h3 id="渐进式框架"><a href="#渐进式框架" class="headerlink" title="渐进式框架"></a>渐进式框架</h3><p>​    渐进式框架就是主张最少，它具有比较强的包容性。例如一个项目使用的是<code>Jquery</code>的框架，在使用<code>Vue</code>升级时，不必一次性将所有已有的项目全部重做，只需要自底向上慢慢去替换，就可以完成迭代工作。</p>
+<h2 id="Vue的安装"><a href="#Vue的安装" class="headerlink" title="Vue的安装"></a>Vue的安装</h2><p>Vue 2.x<code>和</code>Vue 3.x`安装方式较为不同。</p>
+<h3 id="Vue-2-x版本安装"><a href="#Vue-2-x版本安装" class="headerlink" title="Vue 2.x版本安装"></a><code>Vue 2.x</code>版本安装</h3><div class="hljs"><pre><code class="hljs shell">npm install vue-cli -g  -- 全局安装Vue 2.x
+vue --version           -- 查看Vue安装版本,出现版本提示则表示安装成功</code></pre></div>
+
+<h3 id="Vue-2-x项目创建"><a href="#Vue-2-x项目创建" class="headerlink" title="Vue 2.x项目创建"></a><code>Vue 2.x</code>项目创建</h3><div class="hljs"><pre><code class="hljs shell">-- 创建项目
+vue init webpack 项目名称
+-- 出现如下提示
+Project name (项目)                     -- 输入项目名称 回车默认为vue init 时的项目名
+Project description A Vue.js project    -- 输入项目描述
+Author&lt;&gt;                                -- 输入作者
+Vue build standalone                    -- 需要不需要安装编译器，我选择需要安装
+Install vue-router? Yes                 -- 是否使用vue-router Y为使用N不使用
+Use ESLint to lint your code? (Y/n)     -- 是否使用ESLint语法检查 
+Set up unit tests No                    -- 是否使用unit测试 我没有用到选的是不选择
+Setup e2e tests with Nightwatch? No     -- 是否使用e2e测试 我也没有用到选择的不使用
+
+-- 启动项目
+cd 项目
+npm run dev</code></pre></div>
+
+
+
+<h3 id="Vue-3-x版本安装"><a href="#Vue-3-x版本安装" class="headerlink" title="Vue 3.x版本安装"></a><code>Vue 3.x</code>版本安装</h3><div class="hljs"><pre><code class="hljs shell">npm install -g @vue/cli  -- 全局安装Vue 3.x
+vue --version            -- 查看Vue安装版本,出现版本提示则表示安装成功</code></pre></div>
+
+<h3 id="Vue-3-x项目创建"><a href="#Vue-3-x项目创建" class="headerlink" title="Vue 3.x项目创建"></a><code>Vue 3.x</code>项目创建</h3><div class="hljs"><pre><code class="hljs shell">-- 创建项目
+vue create 项目名称
+-- 出现如下提示
+Please pick a preset: Manually select features
+Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter
+Use history mode for router? (Requires proper server setup for index fallback in production) No
+Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): Less
+Pick a linter / formatter config: Prettier
+Pick additional lint features: Lint on save
+Where do you prefer placing config for Babel, ESLint, etc.? In package.json
+Save this as a preset for future projects? (y/N) n
+
+-- 启动项目
+cd 项目
+npm run dev</code></pre></div>
+
+<p>​    <code>Vue 3.x</code>提供了图形化界面的项目搭建方式，可以使用<code>vue ui</code>命令进入vue管理界面进行项目的创建。</p>
+
             </div>
             <hr>
             <div>
@@ -410,7 +454,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Vue历练之路一---Vue介绍&nbsp;",
+        "Vue历练之路一---Vue介绍、安装及项目初始化&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

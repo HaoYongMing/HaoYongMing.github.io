@@ -183,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      198 字
+      749 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      11
        分钟
     </span>
   
@@ -239,21 +239,114 @@
 <p><code>el：</code>el指定的容器会交由<code>Vue</code>进行管理，<code>Vue</code>内部会解析容器中的一些固定语法，完成数据的展示。</p>
 <p><code>data：</code>data用于指定数据</p>
 <p>在<code>Vue</code>对象中，我们还可以指定很多的内容，后续再做补充。</p>
-<h2 id="Vue语法"><a href="#Vue语法" class="headerlink" title="Vue语法"></a>Vue语法</h2><h3 id="Mustache语法"><a href="#Mustache语法" class="headerlink" title="Mustache语法"></a>Mustache语法</h3><p><code>&#123;&#123;&#125;&#125;</code>称之为Mustache语法，它可以将vue中定义的数据展示到标签内（标签之间的内容，并不是标签的属性）。</p>
-<p>上述案例可改写为：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<h2 id="Vue的模板语法"><a href="#Vue的模板语法" class="headerlink" title="Vue的模板语法"></a>Vue的模板语法</h2><h3 id="Mustache语法"><a href="#Mustache语法" class="headerlink" title="Mustache语法"></a>Mustache语法</h3><p><code>Mustache</code>标签将会被替代为对应数据对象上message的值。无论何时，绑定的数据对象上messagee的值发生了改变，插值处的内容都会更新。格式: <code>&#123;&#123;&#125;&#125;</code></p>
+<p>HTML：</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Mustache语法<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
-<span class="javascript">    <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(&#123;</span>
-<span class="javascript">        el: <span class="hljs-string">&#x27;#app&#x27;</span>,</span>
-        data:&#123;
-<span class="javascript">            message: <span class="hljs-string">&#x27;Hello,Vue&#x27;</span></span>
-        &#125;
-    &#125;);
-<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        message: <span class="hljs-string">&#x27;Mustache&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
 
 <p>效果:</p>
-<p><img src="D:\items\blog\public\img\vue2-1.jpg" srcset="/img/loading.gif"></p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/mustache.jpg?raw=true" srcset="/img/loading.gif"></p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/mustache-change.jpg?raw=true" srcset="/img/loading.gif"></p>
+<h3 id="v-once指令"><a href="#v-once指令" class="headerlink" title="v-once指令"></a>v-once指令</h3><p>​    通过使用 <code>v-once</code> 指令，可以进行一次性的赋值。在修改绑定数据时，该视图不会改变。</p>
+<p>HTML：</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>v-once指令<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>&#123;&#123;once&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        once: <span class="hljs-string">&#x27;v-once&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
+
+<p>效果:</p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/once.jpg?raw=true" srcset="/img/loading.gif"></p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/once-change.jpg?raw=true" srcset="/img/loading.gif"></p>
+<h3 id="v-cloak指令"><a href="#v-cloak指令" class="headerlink" title="v-cloak指令"></a>v-cloak指令</h3><p>​    <code>Mustache</code>语法在前端数据量大，数据处理较慢时会出现语法代码闪烁的情况。<code>v-cloak</code>指令可以解决闪烁问题。</p>
+<p>HTML:</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>v-cloak指令，可以解决Mustache闪烁问题<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-cloak</span>&gt;</span>&#123;&#123;cloak&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p>CSS:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-attr">[v-cloak]</span> &#123;
+ <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
+&#125;</code></pre></div>
+
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        cloak: <span class="hljs-string">&#x27;cloak&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
+
+<p>​    <code>v-cloak</code>实现原理就是在页面加载时先使标签不显示，在标签加载完成后由<code>vue</code>将<code>display</code>属性删除。</p>
+<h3 id="v-text指令"><a href="#v-text指令" class="headerlink" title="v-text指令"></a>v-text指令</h3><p>​    <code>v-text</code>渲染的标签内容不会被解析，会被作为字符文本渲染，并且没有闪烁问题。</p>
+<p>HTML:</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>v-text指令，用于填充纯文本内容<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        text: <span class="hljs-string">&#x27;v-text&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
+
+<p>效果:</p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/text.jpg?raw=true" srcset="/img/loading.gif"></p>
+<h3 id="v-html指令"><a href="#v-html指令" class="headerlink" title="v-html指令"></a>v-html指令</h3><p>​    <code>v-html</code>渲染的标签内容会被当做html渲染。</p>
+<p>HTML：</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>v-html指令,用于输出HTML内容<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;html&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        text: <span class="hljs-string">&#x27;v-text&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
+
+<p>效果：</p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/html.jpg?raw=true" srcset="/img/loading.gif"></p>
+<h3 id="v-pre指令"><a href="#v-pre指令" class="headerlink" title="v-pre指令"></a>v-pre指令</h3><p>​    v-pre指令可以忽略语法解析，跳过这个元素和它的子元素的编译过程。一些静态的内容不需要编辑加这个指令可以加快编辑。</p>
+<p>HTML:</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>v-pre指令,忽略语法解析<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-pre</span>&gt;</span>&#123;&#123;pre&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+
+<p>JavaScript:</p>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> mv = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">&#x27;#app&#x27;</span>,
+    data:&#123;
+        pre: <span class="hljs-string">&#x27;pre&#x27;</span>
+    &#125;
+&#125;);</code></pre></div>
+
+<p>效果:</p>
+<p><img src="https://github.com/HaoYongMing/PicStorage/blob/master/pre.jpg?raw=true" srcset="/img/loading.gif"></p>
 
             </div>
             <hr>
@@ -276,6 +369,12 @@
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/08/21/NodeJs/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">NodeJs</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
